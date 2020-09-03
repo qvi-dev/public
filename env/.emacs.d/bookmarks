@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("default-bookmark2"
+ (filename . "~/bscaler/source/api/bscaler_api.cpp")
+ (front-context-string . " bs_chain_stuff(")
+ (rear-context-string . "\n */\nstatic void")
+ (position . 60754))
+("default-bookmark1"
+ (filename . "~/bscaler/source/api/bscaler_api.cpp")
+ (front-context-string . "      box_affine")
+ (rear-context-string . "ine_boxes[i];\n  ")
+ (position . 62869))
+)
