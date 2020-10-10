@@ -1,0 +1,5 @@
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_C_COMPILER mips-linux-gnu-gcc)
+set(CMAKE_CXX_COMPILER mips-linux-gnu-g++)
+set(CMAKE_FIND_ROOT_PATH "/mllib/tools/mips-gcc520-glibc222")
+option(MIPS "Enable MIPS" ON)

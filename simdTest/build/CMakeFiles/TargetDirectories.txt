@@ -1,0 +1,3 @@
+/home/zhliu/project/inndk/inni/simdTest/build/CMakeFiles/edit_cache.dir
+/home/zhliu/project/inndk/inni/simdTest/build/CMakeFiles/rebuild_cache.dir
+/home/zhliu/project/inndk/inni/simdTest/build/CMakeFiles/testliw.dir

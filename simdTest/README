@@ -1,0 +1,14 @@
+1)
+mkdir build
+cd build
+cmake -DCMAKE_TOOLCHAIN_FILE=../mips.toolchain.cmake ..
+make -j16
+cp testliw ../cse_20200820/.
+
+2)
+cd cse_20200820;
+./cseserver & (remember port ID)
+./cseclient taurus 0x9000 (port ID)
+cp_from_host testliw testliw
+chmod +x testliw testliw
+./testliw

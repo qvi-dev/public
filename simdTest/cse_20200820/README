@@ -1,0 +1,23 @@
+version: 2020-08-20
+commit: 3f73ac98
+(bscaler support greater than 2048
+ nna aide support dump ORAM data
+ open macro core/core_sim_cfg.h: #define EXTEND_RAMDISK_FS)
+ 
+make rootfs
+----------------------------
+1. cd your_cse_dir
+2. ./genext2fs -b size(larger than the dir size) -d your_app_dir rootfs.ext2
+
+startup CSE
+----------------------------
+1. cp /mllib/tools/cse your_cse_dir -rf
+2. cd your_cse_dir
+3. @shell-1: ./cseserver
+4. @shell-2: ./cseclient taurus(host name) 0x9000(server port, get it from the message by ./cseserver)
+
+run application in CSE
+----------------------------
+1. @cseclient: mount -t ext2 /dev/vram /mnt
+2. @cseclient: cd /mnt; (your will find your_app_dir files here)
+3. @cseclient: ./your_app

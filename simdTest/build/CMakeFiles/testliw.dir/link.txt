@@ -1,0 +1,1 @@
+/mllib/tools/mips-gcc520-glibc222/bin/mips-linux-gnu-gcc   -mfp64 -EL -static -O3 -lm   CMakeFiles/testliw.dir/testliw.c.o test_LIW.o  -o testliw -rdynamic -lm 

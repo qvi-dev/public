@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../source/test_LIW.h
+
+/home/zhliu/project/inndk/inni/simdTest/testliw.c
+stdint.h
+-
+stdio.h
+-
+stdlib.h
+-
+test_LIW.h
+/home/zhliu/project/inndk/inni/simdTest/test_LIW.h
+
