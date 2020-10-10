@@ -6,7 +6,7 @@
 
 ######            1.   simplify recoder           ######
 i=1
-sed 's/"mode"://g' test_out.txt >| temp_$i.log
+sed 's/"mode"://g' recoder_part.txt >| temp_$i.log
 sed 's/,//g' temp_$i.log >| temp_$[i+1].log
 sed 's/"src_format"://g' temp_$[i+1].log >| temp_$[i+2].log
 sed 's/"src_w"://g' temp_$[i+2].log >| temp_$[i+3].log
@@ -108,7 +108,7 @@ do
 	fi
 	
 		let "j++"
-done < test_out.txt
+done < out.txt
 #echo "PERSP  ABRG -> ABRG total number: $mode_1 "  > ./mode_result.txt
 #echo "AFFINE ABRG -> ABRG total number: $mode_2 "  >> ./mode_result.tx
 #echo "AFFINE ABRG -> ABRG total number: $mode_3 "  >> ./mode_result.tx
@@ -119,4 +119,4 @@ done < test_out.txt
 #echo "AFFINE ABRG -> ABRG total number: $mode_8 "  >> ./mode_result.tx
 #echo "AFFINE ABRG -> ABRG total number: $mode_9 "  >> ./mode_result.tx
 
-`./result`
+# `./result`

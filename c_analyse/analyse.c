@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define DATALEN 20000
 
@@ -21,7 +22,14 @@ typedef struct
 	int h;
 	int line_stride;	
 } bs_list ;
-	
+
+struct class
+{
+	char class_mode[8];
+	char class_src[8];
+	char class_dst[8];	
+};  
+
 struct matrix
 {
 	char mode[8];
@@ -30,14 +38,30 @@ struct matrix
 	float MPersp0, MPersp1, MPersp2 ;
 } ;
 
+typedef struct
+{
+	int len;
+	int InitLen;
+	char mode[8];
+	char src_format[8];
+	char dst_format[8];
+	
+} bs_box ;
+
 int Sql_init()
 {
 	int i=0;
 	FILE *data;
 	char box_src_format[20];
 	char box_dst_format[20];
-	bs_list src[DATALEN], dst[DATALEN];            
-    struct	matrix matrix_box[DATALEN];     
+	bs_list src[DATALEN], dst[DATALEN];
+	bs_box box[200];
+	struct class bscaler_class[200];
+    struct	matrix matrix_box[DATALEN];
+
+	
+
+	
 
 	if ( (data=fopen("out.txt","r")) == NULL )
 		{
@@ -54,83 +78,53 @@ int Sql_init()
 	fclose( data );
 
 			//  classify 1
-	int k=0;
-    		
-			for ( int k=0; k< DATALEN; k++ )
-				{
-					box_src_format[k] = src[k].format;
-					box_dst_format[k] = dst[k].format;
-					for ( )
-					
-					
-	       	    	for ( int j=0; j< DATALEN; j++ )
-						
-			        	{
-							
-				        	if ( matrix_box[k].mode == 'PERSP' && src[j].format == src[k].format  )	
-					        	{
-									
-						        	if ( dst[j].format != box_dst_format[0] )
-										{
-											int k++;
-											
-											
-										}
-										
-								
-					        	}
-					
-					
-					
-					
-					
-					
-                        }
+			memcpy( bscaler_class[0].class_mode , matrix_box[0].mode , sizeof ( char) * 8);
+			memcpy( bscaler_class[0].class_src , matrix_box[0].src , sizeof ( char) * 8);
+			memcpy( bscaler_class[0].class_dst , matrix_box[0].dst , sizeof ( char) * 8);
 			
+//			printf("%s\n",matrix_box[0].mode);
+//			printf("%s\n",bscaler_class[0].class_mode);
+
+			for (int j=1; j<DATALEN; j++ )
+				{
+					if ( ! strcmp (matrix_box[j].mode, bscaler_class[0].class_mode ) )
+						{
+							memcpy( bscaler_class[j].class_mode , matrix_box[j].mode , sizeof ( char) * 8);
+
+							
+						}
+					else
+						{
+							j ++;
+						}
 				}
+
+
+
+
+
+			for ( int j=0; j<DATALEN; j++ )
+				{
+					if ( j=0 )
+					memcpy( box[0].mode , matrix_box[j].mode , sizeof ( char) * 8);
+					else
+						{
+							for ( int q=0; q< 
+						}
+				}
+
 			
-			//  classify 2
-			/*
-			if( matrix_box[i].mode == 'PSESP')
-				{
-					if ( src[i].format==   && dst[i].format== )
-						{
-							
-						}
-					else if ( src[i].format==   && dst[i].format== )
-						{
-							
-						}
-					else if ( src[i].format==   && dst[i].format== )
-						{
-							
-						}
-					
-				}
-			else if( matrix_box[i].mode == 'RSZ' )
-				{
-					if ( src[i].format==   && dst[i].format== )
-						{
-							
-						}
-				}
-			else if( matrix_box[i].mode== 'AFFINE')
-				{
-					if ( src[i].format==   && dst[i].format== )
-						{
-							
-						}
-				}
-			else
-				return 1;
-				*/
-	
+			
+
+			
+
+			
+			
+
+			
 	
 	 
 
-	
-
-	
 }
 
 int main()
